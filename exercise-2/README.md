@@ -23,3 +23,15 @@
     
     p(g|Orange) = 0.3 * 0.6 / 0.36 = 0.18 / 0.36 = 0.5
     
+# Exercise 2.4
+
+![](plot24.jpg)
+
+* Row 1 and 2 are possibly gaussian distributed since their samples are decimal numbers
+* * Row 1 is N(3.9768, 3.9768)
+* * Row 2 is N(-3.0028, -3.0028)
+* Row 3 and 4 are possibly binominal distributed since their samples are whole numbers
+* * N is both times the number of samples (10000)
+* * lambda is 
+* Row 5 is poisson distributed
+
