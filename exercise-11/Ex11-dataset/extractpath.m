@@ -1,0 +1,3 @@
+function [p,u] = extractpath(vchild,tau)
+
+% Your code...

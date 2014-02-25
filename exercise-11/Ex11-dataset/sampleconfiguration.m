@@ -1,0 +1,3 @@
+function qrand = sampleconfiguration(climits)
+
+% Your code...

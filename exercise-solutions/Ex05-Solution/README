@@ -1,0 +1,31 @@
+ Ex5-SupervisedLearning
+ Support Vector Machines
+ ===============================
+ 
+ 
+The Matlab folder contains the solutions to the whole exercise, each part is documented in provided matlab files
+ 
+Executing Ex05Solution.m produces the expected results including plots;
+ 
+Example output:
+
+      >> Ex05Solution
+      Support Vector Machine classifier:
+      ----------------------------------
+      Dataset: simple.txt
+      - nsamples = 400
+      Classifying...
+      Results
+      - training set: npos = 124, nneg = 143
+      - validate set: npos = 76, nneg = 57
+      - tp = 73 (96.1%)
+      - fp = 3 (5.26%)
+      - fn = 3 (3.95%)
+      - tn = 54 (94.7%)
+      - accuracy = 0.9549, errorrate = 0.04511
+      - tprate = 0.9605, fprate = 0.05263
+      - precision = 0.9605, recall = 0.9605
+      - fmeasure = 1.921
+
+      
+By playing with the values of C, p, sigma, kernel; you can get to see the behaviour of the classifier
