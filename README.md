@@ -5,10 +5,10 @@
 ## Partially solved
 
 * [Exercise 1](exercise-1)
+* [Exercise 2](exercise-2)
 
 ## Unsolved
 
-* [Exercise 2](exercise-2)
 * [Exercise 3](exercise-3)
 * [Exercise 4](exercise-4)
 * [Exercise 5](exercise-5)
