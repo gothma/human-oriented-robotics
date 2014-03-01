@@ -27,7 +27,12 @@ rand('twister',rndseed);
 
 
 % ----- Build test / training set
+ind = randperm(size(dataset,1));
+training = ind < floor(size(dataset,1)*(2/3));
+test = ind >= floor(size(dataset,1)*(2/3));
 
+trainset = dataset(training, :);
+testset = dataset(test,:);
 
 % ----- Learn and classify
 disp('Classifying...');
