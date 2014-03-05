@@ -11,11 +11,11 @@ if strcmp(kernel,'rbf') && (nargin == 5),
     'Kernel_function','rbf','rbf_sigma',sigma,'boxconstraint',C,'autoscale',false,'showplot',true);
 elseif strcmp(kernel,'linear'),
   svmm = svmtrain(trainingdata(:,1:end-1),trainingdata(:,end),...
-    'Kernel_function','linear','boxconstraint',C,'autoscale',false);
+    'Kernel_function','linear','boxconstraint',C,'autoscale',false,'showplot',true);
 elseif strcmp(kernel,'polynomial') && (nargin == 5),
   p = varargin{1};
   svmm = svmtrain(trainingdata(:,1:end-1),trainingdata(:,end),...
-    'Kernel_function','polynomial','polyorder',p,'boxconstraint',C,'autoscale',false);
+    'Kernel_function','polynomial','polyorder',p,'boxconstraint',C,'autoscale',false,'showplot',true);
 else
   error('Unknown kernel or wrong parameters');
 end;
