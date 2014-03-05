@@ -1,4 +1,4 @@
-function C = kNN(data)
+function C = kNN(data, metric)
 
     % Plot data
     hold on;
@@ -19,7 +19,7 @@ function C = kNN(data)
     fn = 0;
     
     for sample = test'
-        y = getClass(train, sample(1:2), 5);
+        y = getClass(train, sample(1:2), 5, metric);
         if y > 0
             if sample(3) > 0
                 tp = tp + 1;
@@ -38,14 +38,23 @@ function C = kNN(data)
     C = [tp fp; fn tn];
 end
 
-function class = getClass(data, query, k)
+function class = getClass(data, query, k, metric)
     
     % Calculate all squared distances to the query
     dists = data(:,1:2) - repmat(query', size(data, 1), 1);
-    sqDists = sum(dists .^ 2, 2);
+    if strcmp('euclidean', metric)
+        dists = sum(dists .^ 2, 2);
+    elseif strcmp('manhattan', metric)
+        dists = sum(abs(dists), 2);
+    elseif strcmp('infinity', metric)
+        dists = max(abs(dists), [], 2);
+    else
+        error('Unknown distance metric')
+    end
+        
     
     % Get minimal distances
-    [~, ind] = sort(sqDists);
+    [~, ind] = sort(dists);
     
     % Cast a majority vote (only works in a two class world)
     class = sign(mean(data(ind(1:k), 3)));
