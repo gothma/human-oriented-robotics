@@ -1,17 +1,17 @@
-function C = kNN(data, metric)
+function C = kNN(train, test, k, metric)
 
-    % Plot data
-    hold on;
-    positive = data(:, 3) > 0;
-    negative = data(:, 3) < 0;
-    scatter(data(positive, 1), data(positive, 2), 'r');
-    scatter(data(negative, 1), data(negative, 2), 'g');
-    
-    % Divide into testing and training
-    N = size(data, 1);
-    oracle = randperm(N);
-    test = data(oracle < N/3, :);
-    train = data(oracle >= N/3, :);
+%     % Plot data
+%     hold on;
+%     positive = data(:, 3) > 0;
+%     negative = data(:, 3) < 0;
+%     scatter(data(positive, 1), data(positive, 2), 'r');
+%     scatter(data(negative, 1), data(negative, 2), 'g');
+%     
+%     % Divide into testing and training
+%     N = size(data, 1);
+%     oracle = randperm(N);
+%     test = data(oracle < N/3, :);
+%     train = data(oracle >= N/3, :);
     
     tp = 0;
     tn = 0;
@@ -19,7 +19,7 @@ function C = kNN(data, metric)
     fn = 0;
     
     for sample = test'
-        y = getClass(train, sample(1:2), 5, metric);
+        y = getClass(train, sample(1:2), k, metric);
         if y > 0
             if sample(3) > 0
                 tp = tp + 1;
@@ -49,7 +49,8 @@ function class = getClass(data, query, k, metric)
     elseif strcmp('infinity', metric)
         dists = max(abs(dists), [], 2);
     else
-        error('Unknown distance metric')
+        disp(metric)
+        error('Unknown distance metric');
     end
         
     
